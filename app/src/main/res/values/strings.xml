@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Marvel\'s Library</string>
+    <string name="MarvelTxt">MARVEL</string>
+    <string name="LibrayTxt">Library</string>
+    <string name="HeroesTxt">Héroes</string>
+    <string name="VillanosTxt">Villanos</string>
+    <string name="CómicsTxt">Cómics</string>
+    <string name="AntiheroesTxt">Antihéroes</string>
+    <string name="BuscarTxt">Buscar Héroe:</string>
+    <string name="NombreTxt">Introduzca el nombre del Héroe</string>
+    <string name="BuscarBTN">Buscar</string>
 </resources>
