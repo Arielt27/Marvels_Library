@@ -4,9 +4,16 @@
     <string name="LibrayTxt">Library</string>
     <string name="HeroesTxt">Héroes</string>
     <string name="VillanosTxt">Villanos</string>
+    <string name="BuscarVillanosTxt">Buscar Villano:</string>
+    <string name="NombreVillanoTxt">Introduzca el nombre del Villano</string>
     <string name="CómicsTxt">Cómics</string>
+    <string name="BuscarComicTxt">Buscar Cómic:</string>
+    <string name="NombreComicTxt">Introduzca el numero de comic</string>
     <string name="AntiheroesTxt">Antihéroes</string>
+    <string name="BuscarAntiheroesTxt">Buscar Antihéroe:</string>
+    <string name="NombreAntiHeroeTxt">Introduzca el nombre del Antihéroe</string>
     <string name="BuscarTxt">Buscar Héroe:</string>
     <string name="NombreTxt">Introduzca el nombre del Héroe</string>
     <string name="BuscarBTN">Buscar</string>
+
 </resources>
