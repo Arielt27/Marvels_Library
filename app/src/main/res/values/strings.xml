@@ -9,4 +9,8 @@
     <string name="BuscarTxt">Buscar Héroe:</string>
     <string name="NombreTxt">Introduzca el nombre del Héroe</string>
     <string name="BuscarBTN">Buscar</string>
+    <string name="DescripcionTxt">Descripción</string>
+    <string name="DatosTxt">Datos Generales</string>
+    <string name="RegresarBTN">Regresar</string>
+    <string name="NewSearchBTN">Nueva Búsqueda</string>
 </resources>
