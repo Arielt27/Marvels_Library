@@ -19,5 +19,6 @@
     <string name="DatosTxt">Datos Generales</string>
     <string name="RegresarBTN">Regresar</string>
     <string name="NewSearchBTN">Nueva Búsqueda</string>
+    <string name="CuadrosTexto"> </string>
 </resources>
 
