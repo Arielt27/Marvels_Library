@@ -13,5 +13,5 @@
         android:layout_marginStart="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ImagThor" />
+        app:srcCompat="@drawable/imagethor" />
 </androidx.constraintlayout.widget.ConstraintLayout>

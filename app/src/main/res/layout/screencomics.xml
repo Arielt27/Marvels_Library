@@ -9,12 +9,53 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/TxtDatos"
+            android:layout_width="380dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:drawable/editbox_dropdown_light_frame"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/DatosTxt"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/DescripcionTxt"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="150dp" />
+            app:layout_constraintGuide_begin="90dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
@@ -22,7 +63,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_begin="680dp"
+            app:layout_constraintGuide_end="90dp"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -30,11 +71,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/colorRed"
-            android:paddingTop="10dp"
             android:text="@string/CómicsTxt"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textSize="80sp"
+            android:textSize="66sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,14 +96,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_begin="200dp"
+            app:layout_constraintGuide_begin="140dp"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="@string/BuscarComicTxt"
@@ -74,8 +114,8 @@
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <TextView
-            android:id="@+id/textView10"
-            android:layout_width="200dp"
+            android:id="@+id/BuscarTxt"
+            android:layout_width="210dp"
             android:layout_height="20dp"
             android:layout_marginStart="2dp"
             android:layout_marginTop="16dp"
@@ -94,7 +134,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_begin="440dp"
+            app:layout_constraintGuide_begin="390dp"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -113,21 +153,48 @@
             app:layout_constraintBottom_toTopOf="@+id/guideline5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintStart_toEndOf="@+id/BuscarTxt"
             app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="380dp"
-            android:layout_height="180dp"
+        <Button
+            android:id="@+id/returnBtn3"
+            android:layout_width="128dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="36dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:text="@string/RegresarBTN"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline4"
+            app:layout_constraintVertical_bias="0.517" />
+
+        <Button
+            android:id="@+id/newSearchBtn3"
+            android:layout_width="128dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/NewSearchBTN"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
+        <TextView
+            android:id="@+id/TxtDescripcion"
+            android:layout_width="380dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@android:drawable/editbox_dropdown_light_frame"
-            android:text="TextView"
             app:layout_constraintBottom_toTopOf="@+id/guideline6"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline5" />
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

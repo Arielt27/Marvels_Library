@@ -14,16 +14,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="60dp" />
+            app:layout_constraintGuide_begin="50dp" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline4"
+            android:id="@+id/guideline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_begin="680dp"
+            app:layout_constraintGuide_begin="100dp"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_end="50dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_begin="384dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView7"
@@ -33,7 +53,7 @@
             android:text="@string/CómicsTxt"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textSize="46sp"
+            android:textSize="36sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -51,15 +71,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_begin="100dp"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
@@ -75,7 +86,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <TextView
-            android:id="@+id/BuscarHeroeTxt"
+            android:id="@+id/BuscarTxt"
             android:layout_width="220dp"
             android:layout_height="20dp"
             android:layout_marginStart="4dp"
@@ -89,45 +100,20 @@
             app:layout_constraintStart_toEndOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_begin="440dp"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <TextView
-            android:id="@+id/textView11"
-            android:layout_width="350dp"
-            android:layout_height="210dp"
+            android:id="@+id/TxtDescripcion"
+            android:layout_width="330dp"
+            android:layout_height="180dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:background="@android:drawable/editbox_dropdown_light_frame"
             android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/ReturnBtn"
             app:layout_constraintEnd_toStartOf="@+id/guideline7"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-        <Button
-            android:id="@+id/BuscarBtn"
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="170dp"
-            android:layout_marginBottom="12dp"
-            android:background="@android:drawable/btn_default"
-            android:paddingBottom="4dp"
-            android:text="@string/BuscarBTN"
-            android:textAlignment="inherit"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/BuscarHeroeTxt"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView12"
@@ -160,17 +146,37 @@
             app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
         <TextView
-            android:id="@+id/textView14"
-            android:layout_width="350dp"
-            android:layout_height="210dp"
+            android:id="@+id/TxtDatos"
+            android:layout_width="330dp"
+            android:layout_height="180dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:background="@android:drawable/editbox_dropdown_light_frame"
+            app:layout_constraintBottom_toTopOf="@+id/guideline6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.424"
             app:layout_constraintStart_toStartOf="@+id/guideline7"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/BuscarBtn"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:drawable/btn_default"
+            android:paddingBottom="4dp"
+            android:text="@string/BuscarBTN"
+            android:textAlignment="inherit"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/BuscarTxt"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <Button
             android:id="@+id/ReturnBtn"
@@ -201,17 +207,6 @@
             app:layout_constraintEnd_toEndOf="@+id/textView8"
             app:layout_constraintStart_toStartOf="@+id/guideline7"
             app:layout_constraintTop_toTopOf="@+id/guideline6" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_begin="384dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
