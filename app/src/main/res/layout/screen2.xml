@@ -50,59 +50,62 @@
 
         <Button
             android:id="@+id/HeroesBtn"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="40dp"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="20dp"
             android:background="@android:drawable/btn_default_small"
             android:text="@string/HeroesTxt"
             android:textAlignment="center"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/AntiHeBtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintTop_toBottomOf="@+id/guideline9" />
 
         <Button
             android:id="@+id/AntiHeBtn"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="40dp"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
             android:background="@android:drawable/btn_default_small"
             android:text="@string/AntiheroesTxt"
             android:textAlignment="center"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/VillanosBtn"
+            app:layout_constraintBottom_toTopOf="@+id/guideline10"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/HeroesBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/HeroesBtn"
+            app:layout_constraintVertical_bias="0.8" />
 
         <Button
             android:id="@+id/VillanosBtn"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="40dp"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="20dp"
             android:background="@android:drawable/btn_default_small"
             android:text="@string/VillanosTxt"
             android:textAlignment="center"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/ComicsBtn"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/HeroesBtn"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AntiHeBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/guideline9" />
 
         <Button
             android:id="@+id/ComicsBtn"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="80dp"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
             android:background="@android:drawable/btn_default_small"
             android:text="@string/CómicsTxt"
             android:textAlignment="center"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView15"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/guideline10"
+            app:layout_constraintEnd_toStartOf="@+id/AntiHeBtn"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/VillanosBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/VillanosBtn"
+            app:layout_constraintVertical_bias="0.8" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
