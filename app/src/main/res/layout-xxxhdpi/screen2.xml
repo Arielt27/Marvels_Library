@@ -3,106 +3,117 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="731dp">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline9"
+            android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="90dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_begin="150dp"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline10"
+            android:id="@+id/guideline2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="90dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_begin="680dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorRed"
+            android:paddingTop="10dp"
+            android:text="@string/MarvelTxt"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="96sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/colorRed"
-            android:text="@string/MarvelTxt"
             android:textAlignment="center"
-            android:textColor="@color/design_default_color_background"
-            android:textSize="66sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@color/colorRed"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline10" />
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <Button
             android:id="@+id/HeroesBtn"
-            android:layout_width="150dp"
+            android:layout_width="180dp"
             android:layout_height="60dp"
             android:layout_marginTop="80dp"
-            android:layout_marginBottom="40dp"
             android:background="@android:drawable/btn_default_small"
+            android:fontFamily="@font/carter_one"
             android:text="@string/HeroesTxt"
             android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/AntiHeBtn"
+            android:textSize="24sp"
+            android:typeface="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <Button
-            android:id="@+id/AntiHeBtn"
-            android:layout_width="150dp"
+            android:id="@+id/AntiHBtn"
+            android:layout_width="180dp"
             android:layout_height="60dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginTop="40dp"
             android:background="@android:drawable/btn_default_small"
+            android:fontFamily="@font/carter_one"
             android:text="@string/AntiheroesTxt"
             android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/VillanosBtn"
+            android:textSize="24sp"
+            android:typeface="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/HeroesBtn" />
 
         <Button
             android:id="@+id/VillanosBtn"
-            android:layout_width="150dp"
+            android:layout_width="180dp"
             android:layout_height="60dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginTop="40dp"
             android:background="@android:drawable/btn_default_small"
+            android:fontFamily="@font/carter_one"
             android:text="@string/VillanosTxt"
             android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/ComicsBtn"
+            android:textSize="24sp"
+            android:typeface="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AntiHeBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/AntiHBtn" />
 
         <Button
             android:id="@+id/ComicsBtn"
-            android:layout_width="150dp"
+            android:layout_width="180dp"
             android:layout_height="60dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="80dp"
             android:background="@android:drawable/btn_default_small"
+            android:fontFamily="@font/carter_one"
             android:text="@string/CómicsTxt"
             android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView15"
+            android:textSize="24sp"
+            android:typeface="normal"
+            app:layout_constraintBottom_toTopOf="@+id/textView5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/VillanosBtn" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
