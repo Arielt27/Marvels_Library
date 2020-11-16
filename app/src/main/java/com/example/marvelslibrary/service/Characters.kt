@@ -2,14 +2,22 @@ package com.example.marvelslibrary.service
 
 import android.media.Image
 
-data class CharactersResponse(
-    val count:Int,
-    val offset:Int,
-    val limit:Int,
+data class CharacterDataWrapper(
+    val code:Int,
+    val status:String,
+    val copyright:String,
     val total:Int,
-    val results:List<Character>
+    val data:CharacterDataContainer
 ) {
+    data class CharacterDataContainer(
+        val count:Int,
+        val offset:Int,
+        val limit:Int,
+        val total:Int,
+        val results:List<Character>
+    ){}
     class Character(
+        val id:Int,
         val name:String,
         val description:String,
         val resourceURL:String,

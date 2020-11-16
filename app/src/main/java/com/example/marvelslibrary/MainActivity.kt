@@ -3,13 +3,18 @@ package com.example.marvelslibrary
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelslibrary.repo.CharactersRepo
 import com.example.marvelslibrary.service.CharacterService
-import com.example.marvelslibrary.service.CharactersResponse
+import com.example.marvelslibrary.service.CharacterDataWrapper
+import kotlinx.android.synthetic.main.screenheroes.*
 
 class MainActivity : AppCompatActivity()
 {
+    lateinit var rcvCharacter : RecyclerView
 
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -19,7 +24,7 @@ class MainActivity : AppCompatActivity()
 
         val TAG = javaClass.simpleName
 
-        var charactersList:List<CharactersResponse.Character> = listOf<CharactersResponse.Character>()
+        var charactersList:List<CharacterDataWrapper.Character> = listOf<CharacterDataWrapper.Character>()
         val characterService : CharacterService = CharacterService.instance
         val characterRepo = CharactersRepo(characterService);
 
@@ -31,8 +36,13 @@ class MainActivity : AppCompatActivity()
             }
         }
 
+        println(charactersList.size)
 
-        setContentView(R.layout.screen2)
+        setContentView(R.layout.screenheroes)
+
+        rcvCharacter = rcvPjs
+        rcvCharacter.layoutManager = LinearLayoutManager(this)
+        rcvCharacter.adapter = CharacterListRecycleViewAdapter()
     }
 
     fun Heroes(view: View)
