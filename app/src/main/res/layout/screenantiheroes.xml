@@ -167,8 +167,9 @@
             android:id="@+id/newSearchBtn"
             android:layout_width="128dp"
             android:layout_height="45dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginBottom="8dp"
             android:onClick="NuevaBusqueda"
             android:text="@string/NewSearchBTN"
@@ -176,18 +177,7 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" />
-
-        <Button
-            android:id="@+id/returnBtn2"
-            android:layout_width="128dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:onClick="Regresar"
-            android:text="@string/RegresarBTN"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.535"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />
 

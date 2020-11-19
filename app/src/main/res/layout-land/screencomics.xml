@@ -109,11 +109,9 @@
             android:background="@android:drawable/editbox_dropdown_light_frame"
             android:text="@string/CuadrosTexto"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/ReturnBtn"
             app:layout_constraintEnd_toStartOf="@+id/guideline7"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
         <TextView
             android:id="@+id/textView12"
@@ -180,33 +178,17 @@
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <Button
-            android:id="@+id/ReturnBtn"
-            android:layout_width="128dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="80dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/RegresarBTN"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline7"
-            app:layout_constraintStart_toStartOf="@+id/textView8"
-            app:layout_constraintTop_toTopOf="@+id/guideline6" />
-
-        <Button
             android:id="@+id/NewSearchBtn"
             android:layout_width="128dp"
             android:layout_height="45dp"
-            android:layout_marginStart="80dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="80dp"
             android:layout_marginBottom="8dp"
             android:text="@string/NewSearchBTN"
             android:textAlignment="center"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView8"
-            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

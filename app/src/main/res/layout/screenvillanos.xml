@@ -88,8 +88,10 @@
             android:background="@color/colorRed"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" />
+            app:layout_constraintTop_toTopOf="@+id/guideline4"
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"
@@ -159,25 +161,12 @@
             app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
         <Button
-            android:id="@+id/returnBtn"
-            android:layout_width="128dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:onClick="Regresar"
-            android:text="@string/RegresarBTN"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline4"
-            app:layout_constraintVertical_bias="0.517" />
-
-        <Button
             android:id="@+id/newSearchBtn2"
             android:layout_width="128dp"
             android:layout_height="45dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginBottom="8dp"
             android:onClick="NuevaBusqueda"
             android:text="@string/NewSearchBTN"
@@ -185,6 +174,7 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
         <TextView
