@@ -2,23 +2,19 @@
     <string name="app_name">Marvel\'s Library</string>
     <string name="MarvelTxt">MARVEL</string>
     <string name="LibrayTxt">Library</string>
-    <string name="HeroesTxt">Personajes</string>
-    <string name="VillanosTxt">Villanos</string>
-    <string name="BuscarVillanoTxt">Buscar Villano:</string>
-    <string name="NombreVillanoTxt">Introduzca el nombre del Villano</string>
+
+    <string name="CharacterTxt">Personajes</string>
     <string name="CómicsTxt">Cómics</string>
-    <string name="BuscarComicTxt">Buscar Comic:</string>
-    <string name="NombreComicTxt">Introduzca el numero de Comic</string>
-    <string name="AntiheroesTxt">Antihéroes</string>
-    <string name="BuscarAntiheroeTxt">Buscar Antiheroe:</string>
-    <string name="NombreAntiheroeTxt">Introduzca el nombre del Antiheroe</string>
+
     <string name="BuscarTxt">Buscar Personaje:</string>
     <string name="NombreTxt">Introduzca el nombre del Personaje</string>
+
+    <string name="BuscarComicTxt">Buscar Comic:</string>
+    <string name="NombreComicTxt">Introduzca el numero de Comic</string>
+
     <string name="BuscarBTN">Buscar</string>
-    <string name="DescripcionTxt">Descripción</string>
-    <string name="DatosTxt">Datos Generales</string>
-    <string name="RegresarBTN">Regresar</string>
     <string name="NewSearchBTN">Nueva Búsqueda</string>
+
     <string name="CuadrosTexto"> </string>
     <string name="NombrePersonaje">Nombre Pj</string>
 </resources>

@@ -49,64 +49,29 @@
             app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
         <Button
-            android:id="@+id/HeroesBtn"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="156dp"
-            android:layout_marginTop="50dp"
-            android:background="@color/design_default_color_secondary_variant"
-            android:onClick="Heroes"
-            android:text="@string/HeroesTxt"
-            android:textAlignment="center"
-            android:textColor="@color/design_default_color_on_secondary"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/ComicsBtn"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline9"
-            app:layout_constraintVertical_bias="0.25" />
-
-        <Button
-            android:id="@+id/AntiHeBtn"
+            android:id="@+id/CharacterBtn"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:layout_marginEnd="156dp"
             android:background="@color/design_default_color_secondary_variant"
-            android:onClick="Anti"
-            android:text="@string/AntiheroesTxt"
+            android:onClick="Character"
+            android:text="@string/CharacterTxt"
             android:textAlignment="center"
             android:textColor="@color/design_default_color_on_secondary"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/VillanosBtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5"
-            app:layout_constraintVertical_bias="0.25" />
-
-        <Button
-            android:id="@+id/VillanosBtn"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="156dp"
-            android:layout_marginBottom="60dp"
-            android:background="@color/design_default_color_secondary_variant"
-            android:onClick="Villanos"
-            android:text="@string/VillanosTxt"
-            android:textAlignment="center"
-            android:textColor="@color/design_default_color_on_secondary"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView15"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
         <Button
             android:id="@+id/ComicsBtn"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="156dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="50dp"
             android:background="@color/design_default_color_secondary_variant"
             android:onClick="Comics"
             android:text="@string/CómicsTxt"
@@ -114,6 +79,10 @@
             android:textColor="@color/design_default_color_on_secondary"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/textView15"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CharacterBtn"
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

@@ -1,13 +1,12 @@
 package com.example.marvelslibrary
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 
 class Activity2 : AppCompatActivity()
 {
-
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -15,26 +14,9 @@ class Activity2 : AppCompatActivity()
     }
 
 
-    fun Heroes(view: View)
+    fun Character(view: View)
     {
-        val intent = Intent(this, ActivityHeroes::class.java)
-
-
-        startActivity(intent)
-    }
-
-    fun Villanos(view: View)
-    {
-        val intent = Intent(this, ActivityVillanos::class.java)
-
-
-        startActivity(intent)
-    }
-
-    fun Anti(view: View)
-    {
-        val intent = Intent(this, ActivityAntiheroes::class.java)
-
+        val intent = Intent(this, ActivityCharacter::class.java)
 
         startActivity(intent)
     }
@@ -43,8 +25,6 @@ class Activity2 : AppCompatActivity()
     {
         val intent = Intent(this, ActivityComics::class.java)
 
-
         startActivity(intent)
     }
-
 }

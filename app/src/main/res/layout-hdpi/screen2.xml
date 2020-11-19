@@ -55,11 +55,10 @@
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <Button
-            android:id="@+id/comicsBtn"
+            android:id="@+id/ComicsBtn"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="100dp"
             android:background="@color/design_default_color_secondary_variant"
             android:onClick="Comics"
@@ -69,58 +68,24 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/antiHeBtn" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CharacterBtn"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
-            android:id="@+id/antiHeBtn"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="100dp"
-            android:background="@color/design_default_color_secondary_variant"
-            android:onClick="Anti"
-            android:text="@string/AntiheroesTxt"
-            android:textAlignment="center"
-            android:textColor="@color/design_default_color_on_secondary"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-            app:layout_constraintEnd_toStartOf="@+id/comicsBtn"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/villanosBtn"
+            android:id="@+id/CharacterBtn"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="130dp"
             android:layout_height="0dp"
-            android:layout_marginStart="5dp"
             android:layout_marginTop="100dp"
-            android:layout_marginEnd="20dp"
             android:background="@color/design_default_color_secondary_variant"
-            android:onClick="Villanos"
-            android:text="@string/VillanosTxt"
+            android:onClick="Character"
+            android:text="@string/CharacterTxt"
             android:textAlignment="center"
             android:textColor="@color/design_default_color_on_secondary"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/heroesBtn"
-            app:layout_constraintTop_toBottomOf="@+id/guideline" />
-
-        <Button
-            android:id="@+id/heroesBtn"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="130dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="15dp"
-            android:background="@color/design_default_color_secondary_variant"
-            android:onClick="Heroes"
-            android:text="@string/HeroesTxt"
-            android:textAlignment="center"
-            android:textColor="@color/design_default_color_on_secondary"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/villanosBtn"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guideline" />
