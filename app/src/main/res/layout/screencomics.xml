@@ -37,6 +37,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/colorRed"
+            android:fontFamily="@font/custom_font"
+            android:gravity="center"
             android:text="@string/CómicsTxt"
             android:textAlignment="center"
             android:textColor="@color/design_default_color_background"

@@ -1,0 +1,420 @@
+Index: app/src/main/java/com/example/marvelslibrary/repo/CharactersRepo.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.marvelslibrary.repo\r\n\r\nimport com.example.marvelslibrary.service.CharacterService\r\nimport com.example.marvelslibrary.service.CharacterDataWrapper\r\nimport retrofit2.Call\r\nimport retrofit2.Response\r\n\r\nclass CharactersRepo(private val characterService:CharacterService){\r\n\r\n    var apikey = \"bd34039f11dd5094fed60836a02359b4\"\r\n    var hash = \"11f720d99b00745927692524dc0079d3\"\r\n    var ts = \"1\"\r\n\r\n    fun listCharacters(callBack: (List<CharacterDataWrapper.Character>?)-> Unit)\r\n    {\r\n        val characterCall = characterService.listCharacters(apikey,hash,ts)\r\n        characterCall.enqueue(object: retrofit2.Callback<CharacterDataWrapper.CharacterDataContainer>\r\n        {\r\n            override fun onResponse(\r\n                call: Call<CharacterDataWrapper.CharacterDataContainer>,\r\n                response: Response<CharacterDataWrapper.CharacterDataContainer>\r\n            )\r\n            {\r\n                val body: CharacterDataWrapper.CharacterDataContainer? = response?.body()\r\n                callBack(body?.results)\r\n            }\r\n\r\n            override fun onFailure(call: Call<CharacterDataWrapper.CharacterDataContainer>, t: Throwable) {\r\n                callBack(null)\r\n            }\r\n\r\n        })\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/marvelslibrary/repo/CharactersRepo.kt	(revision 1a2ecc203f6766d2c29b03b362eac4c05d8aad24)
++++ app/src/main/java/com/example/marvelslibrary/repo/CharactersRepo.kt	(date 1605732738136)
+@@ -11,21 +11,21 @@
+     var hash = "11f720d99b00745927692524dc0079d3"
+     var ts = "1"
+ 
+-    fun listCharacters(callBack: (List<CharacterDataWrapper.Character>?)-> Unit)
++    fun listCharacters(callBack: (CharacterDataWrapper.CharacterDataContainer?)-> Unit)
+     {
+         val characterCall = characterService.listCharacters(apikey,hash,ts)
+-        characterCall.enqueue(object: retrofit2.Callback<CharacterDataWrapper.CharacterDataContainer>
++        characterCall.enqueue(object: retrofit2.Callback<CharacterDataWrapper>
+         {
+             override fun onResponse(
+-                call: Call<CharacterDataWrapper.CharacterDataContainer>,
+-                response: Response<CharacterDataWrapper.CharacterDataContainer>
++                call: Call<CharacterDataWrapper>,
++                response: Response<CharacterDataWrapper>
+             )
+             {
+-                val body: CharacterDataWrapper.CharacterDataContainer? = response?.body()
+-                callBack(body?.results)
++                val body: CharacterDataWrapper? = response?.body()
++                callBack(body?.data)
+             }
+ 
+-            override fun onFailure(call: Call<CharacterDataWrapper.CharacterDataContainer>, t: Throwable) {
++            override fun onFailure(call: Call<CharacterDataWrapper>, t: Throwable) {
+                 callBack(null)
+             }
+ 
+Index: app/src/main/java/com/example/marvelslibrary/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.marvelslibrary\r\n\r\nimport android.os.Bundle\r\nimport android.util.Log\r\nimport android.view.View\r\nimport android.widget.LinearLayout\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.recyclerview.widget.LinearLayoutManager\r\nimport androidx.recyclerview.widget.RecyclerView\r\nimport com.example.marvelslibrary.repo.CharactersRepo\r\nimport com.example.marvelslibrary.service.CharacterService\r\nimport com.example.marvelslibrary.service.CharacterDataWrapper\r\nimport kotlinx.android.synthetic.main.screenheroes.*\r\n\r\nclass MainActivity : AppCompatActivity()\r\n{\r\n    lateinit var rcvCharacter : RecyclerView\r\n\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?)\r\n    {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_main)\r\n\r\n        val TAG = javaClass.simpleName\r\n\r\n        var charactersList:List<CharacterDataWrapper.Character> = listOf<CharacterDataWrapper.Character>()\r\n        val characterService : CharacterService = CharacterService.instance\r\n        val characterRepo = CharactersRepo(characterService);\r\n\r\n        characterRepo.listCharacters {\r\n            if(it != null)\r\n            {\r\n                Log.i(TAG,\"resultado = $it\")\r\n                charactersList = it\r\n            }\r\n        }\r\n\r\n        println(charactersList.size)\r\n\r\n        setContentView(R.layout.screenheroes)\r\n\r\n        rcvCharacter = rcvPjs\r\n        rcvCharacter.layoutManager = LinearLayoutManager(this)\r\n        rcvCharacter.adapter = CharacterListRecycleViewAdapter()\r\n    }\r\n\r\n    fun Heroes(view: View)\r\n    {\r\n        setContentView(R.layout.screenheroes)\r\n\r\n    }\r\n\r\n    fun Villanos(view: View)\r\n    {\r\n        setContentView(R.layout.villains_screen)\r\n\r\n    }\r\n\r\n    fun Anti(view: View)\r\n    {\r\n        setContentView(R.layout.antiheroes_screen)\r\n\r\n    }\r\n\r\n    fun Comics(view: View)\r\n    {\r\n        setContentView(R.layout.comics_screen)\r\n\r\n    }\r\n\r\n    fun Buscar(view: View)\r\n    {\r\n\r\n    }\r\n\r\n    fun Regresar(view: View)\r\n    {\r\n        setContentView(R.layout.screen2)\r\n\r\n\r\n    }\r\n\r\n    fun NuevaBusqueda(view: View)\r\n    {\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/marvelslibrary/MainActivity.kt	(revision 1a2ecc203f6766d2c29b03b362eac4c05d8aad24)
++++ app/src/main/java/com/example/marvelslibrary/MainActivity.kt	(date 1605745593302)
+@@ -27,22 +27,38 @@
+         var charactersList:List<CharacterDataWrapper.Character> = listOf<CharacterDataWrapper.Character>()
+         val characterService : CharacterService = CharacterService.instance
+         val characterRepo = CharactersRepo(characterService);
++        val characterListAdapter = CharacterListRecycleViewAdapter()
+ 
+-        characterRepo.listCharacters {
++        /*characterRepo.listCharacters {
+             if(it != null)
+             {
+                 Log.i(TAG,"resultado = $it")
++                charactersList
++                characterListAdapter.listaCharacters = it
++
+                 charactersList = it
++            }else{
++                println("null")
++            }
++        }*/
++
++        characterRepo.listCharacters {
++            if (it != null)
++            {
++                charactersList = it.results
++            }else{
++                Log.i(TAG, "resultado = $it")
++                println("nuklo")
+             }
+         }
+ 
+-        println(charactersList.size)
++        //println(charactersList.size)
+ 
+         setContentView(R.layout.screenheroes)
+ 
+         rcvCharacter = rcvPjs
+         rcvCharacter.layoutManager = LinearLayoutManager(this)
+-        rcvCharacter.adapter = CharacterListRecycleViewAdapter()
++        rcvCharacter.adapter = characterListAdapter
+     }
+ 
+     fun Heroes(view: View)
+Index: app/src/main/java/com/example/marvelslibrary/service/Characters.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.marvelslibrary.service\r\n\r\nimport android.media.Image\r\n\r\ndata class CharacterDataWrapper(\r\n    val code:Int,\r\n    val status:String,\r\n    val copyright:String,\r\n    val total:Int,\r\n    val data:CharacterDataContainer\r\n) {\r\n    data class CharacterDataContainer(\r\n        val count:Int,\r\n        val offset:Int,\r\n        val limit:Int,\r\n        val total:Int,\r\n        val results:List<Character>\r\n    ){}\r\n    class Character(\r\n        val id:Int,\r\n        val name:String,\r\n        val description:String,\r\n        val resourceURL:String,\r\n        val thumbnail:Image,\r\n        val comics:ComicList\r\n    ){}\r\n    class Image(\r\n        val path:String,\r\n        val extension:String\r\n    ) {}\r\n    class ComicList(\r\n        val available:Int,\r\n        val collectionURl:String,\r\n        val items:List<ComicSummary>\r\n    )\r\n    {}\r\n    class ComicSummary (\r\n        val resourceURI:String,\r\n        val name:String\r\n    )\r\n    {}\r\n\r\n}
+===================================================================
+--- app/src/main/java/com/example/marvelslibrary/service/Characters.kt	(revision 1a2ecc203f6766d2c29b03b362eac4c05d8aad24)
++++ app/src/main/java/com/example/marvelslibrary/service/CharacterDataWrapper.kt	(date 1605726538536)
+@@ -10,34 +10,36 @@
+     val data:CharacterDataContainer
+ ) {
+     data class CharacterDataContainer(
+-        val count:Int,
+-        val offset:Int,
+-        val limit:Int,
+-        val total:Int,
+-        val results:List<Character>
+-    ){}
++        val count: Int,
++        val offset: Int,
++        val limit: Int,
++        val total: Int,
++        val results: List<Character>
++    ) {}
++
+     class Character(
+-        val id:Int,
+-        val name:String,
+-        val description:String,
+-        val resourceURL:String,
+-        val thumbnail:Image,
+-        val comics:ComicList
+-    ){}
++        val id: Int,
++        val name: String,
++        val description: String,
++        val resourceURL: String,
++        val thumbnail: Image,
++        val comics: ComicList
++    ) {}
++
+     class Image(
+-        val path:String,
+-        val extension:String
++        val path: String,
++        val extension: String
+     ) {}
++
+     class ComicList(
+-        val available:Int,
+-        val collectionURl:String,
+-        val items:List<ComicSummary>
+-    )
+-    {}
+-    class ComicSummary (
+-        val resourceURI:String,
+-        val name:String
+-    )
+-    {}
++        val available: Int,
++        val collectionURl: String,
++        val items: List<ComicSummary>
++    ) {}
++
++    class ComicSummary(
++        val resourceURI: String,
++        val name: String
++    ) {}
++}
+ 
+-}
+\ No newline at end of file
+Index: app/src/main/java/com/example/marvelslibrary/service/CharacterService.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.marvelslibrary.service\r\n\r\nimport retrofit2.Call\r\nimport retrofit2.Retrofit\r\nimport retrofit2.converter.gson.GsonConverterFactory\r\nimport retrofit2.http.*\r\n\r\n\r\ninterface CharacterService {\r\n    @GET(\"characters{apikey}{hash}{ts}\")\r\n    fun listCharacters(@Query(\"apikey\") apikey: String, @Query(\"hash\") hash:String,@Query(\"ts\") ts:String): Call<CharacterDataWrapper.CharacterDataContainer>\r\n\r\n    companion object\r\n    {\r\n        val instance : CharacterService by lazy{\r\n            val retrofit = Retrofit.Builder().baseUrl(\"http://gateway.marvel.com/v1/public/\")\r\n                .addConverterFactory(GsonConverterFactory.create()).build()\r\n            retrofit.create(CharacterService::class.java)\r\n        }\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/marvelslibrary/service/CharacterService.kt	(revision 1a2ecc203f6766d2c29b03b362eac4c05d8aad24)
++++ app/src/main/java/com/example/marvelslibrary/service/CharacterService.kt	(date 1605742306834)
+@@ -1,19 +1,26 @@
+ package com.example.marvelslibrary.service
+ 
+ import retrofit2.Call
++import retrofit2.Callback
++import retrofit2.Response
+ import retrofit2.Retrofit
+ import retrofit2.converter.gson.GsonConverterFactory
+-import retrofit2.http.*
++import retrofit2.http.GET
++import retrofit2.http.Query
+ 
+ 
+ interface CharacterService {
+-    @GET("characters{apikey}{hash}{ts}")
+-    fun listCharacters(@Query("apikey") apikey: String, @Query("hash") hash:String,@Query("ts") ts:String): Call<CharacterDataWrapper.CharacterDataContainer>
++    @GET("v1/public/characters?")
++    fun listCharacters(
++        @Query("apikey") apikey: String,
++        @Query("hash") hash: String,
++        @Query("ts") ts: String
++    ): Call<CharacterDataWrapper>
+ 
+     companion object
+     {
+         val instance : CharacterService by lazy{
+-            val retrofit = Retrofit.Builder().baseUrl("http://gateway.marvel.com/v1/public/")
++            val retrofit = Retrofit.Builder().baseUrl("http://gateway.marvel.com/")
+                 .addConverterFactory(GsonConverterFactory.create()).build()
+             retrofit.create(CharacterService::class.java)
+         }
+Index: app/src/main/res/layout/layout_view_holder.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"100dp\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/txtViewHolder\"\r\n        android:layout_width=\"132dp\"\r\n        android:layout_height=\"28dp\"\r\n        android:layout_marginStart=\"54dp\"\r\n        android:layout_marginTop=\"35dp\"\r\n        android:layout_marginEnd=\"225dp\"\r\n        android:layout_marginBottom=\"783dp\"\r\n        android:background=\"#000000\"\r\n        android:contentDescription=\"@string/NombrePersonaje\"\r\n        android:text=\"@string/NombrePersonaje\"\r\n        android:textAppearance=\"@style/TextAppearance.AppCompat.Body1\"\r\n        android:textSize=\"36sp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        tools:text=\"@string/NombrePersonaje\" />\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/layout_view_holder.xml	(revision 1a2ecc203f6766d2c29b03b362eac4c05d8aad24)
++++ app/src/main/res/layout/layout_view_holder.xml	(date 1605561464816)
+@@ -3,24 +3,19 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+-    android:layout_height="100dp">
++    android:layout_height="wrap_content">
+ 
+     <TextView
+         android:id="@+id/txtViewHolder"
+-        android:layout_width="132dp"
+-        android:layout_height="28dp"
+-        android:layout_marginStart="54dp"
+-        android:layout_marginTop="35dp"
+-        android:layout_marginEnd="225dp"
+-        android:layout_marginBottom="783dp"
+-        android:background="#000000"
+-        android:contentDescription="@string/NombrePersonaje"
+-        android:text="@string/NombrePersonaje"
++        android:layout_width="388dp"
++        android:layout_height="74dp"
++        android:background="#FFFFFF"
++        android:gravity="clip_horizontal|center_vertical"
++        android:text="@string/SampleTxt"
+         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
++        android:textColor="#000000"
+         android:textSize="36sp"
+-        app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toTopOf="parent"
+-        tools:text="@string/NombrePersonaje" />
++        app:layout_constraintTop_toTopOf="parent" />
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\r\napply plugin: 'kotlin-android'\r\napply plugin: 'kotlin-android-extensions'\r\n\r\nandroid {\r\n    compileSdkVersion 30\r\n    buildToolsVersion \"30.0.2\"\r\n\r\n    defaultConfig {\r\n        applicationId \"com.example.marvelslibrary\"\r\n        minSdkVersion 17\r\n        targetSdkVersion 30\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    compileOptions {\r\n        sourceCompatibility = 1.8\r\n        targetCompatibility = 1.8\r\n    }\r\n\r\n    kotlinOptions{\r\n        jvmTarget = JavaVersion.VERSION_1_8.toString()\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n}\r\n\r\ndependencies {\r\n    implementation fileTree(dir: \"libs\", include: [\"*.jar\"])\r\n    implementation \"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version\"\r\n    implementation 'androidx.core:core-ktx:1.3.1'\r\n    implementation 'androidx.appcompat:appcompat:1.2.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'\r\n    implementation 'com.google.android.material:material:1.2.1'\r\n    implementation \"com.squareup.retrofit2:retrofit:$retrofit_version\"\r\n    implementation \"com.squareup.retrofit2:converter-gson:$retrofit_version\"\r\n    testImplementation 'junit:junit:4.12'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.2'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision 1a2ecc203f6766d2c29b03b362eac4c05d8aad24)
++++ app/build.gradle	(date 1605726413020)
+@@ -35,13 +35,13 @@
+ 
+ dependencies {
+     implementation fileTree(dir: "libs", include: ["*.jar"])
+-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
++    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.10"
+     implementation 'androidx.core:core-ktx:1.3.1'
+     implementation 'androidx.appcompat:appcompat:1.2.0'
+     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+     implementation 'com.google.android.material:material:1.2.1'
+-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
++    implementation "com.squareup.retrofit2:retrofit:2.9.0"
++    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+     testImplementation 'junit:junit:4.12'
+     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+Index: app/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <!-- Base application theme. -->\r\n    <style name=\"AppTheme\" parent=\"Theme.AppCompat.Light.DarkActionBar\">\r\n        <!-- Customize your theme here. -->\r\n        <item name=\"colorPrimary\">@color/colorPrimary</item>\r\n        <item name=\"colorPrimaryDark\">@color/colorPrimaryDark</item>\r\n        <item name=\"colorAccent\">@color/colorAccent</item>\r\n    </style>\r\n\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/styles.xml	(revision 1a2ecc203f6766d2c29b03b362eac4c05d8aad24)
++++ app/src/main/res/values/styles.xml	(date 1605561289810)
+@@ -1,6 +1,6 @@
+ <resources>
+     <!-- Base application theme. -->
+-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
++    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+         <!-- Customize your theme here. -->
+         <item name="colorPrimary">@color/colorPrimary</item>
+         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">Marvel\\'s Library</string>\r\n    <string name=\"MarvelTxt\">MARVEL</string>\r\n    <string name=\"LibrayTxt\">Library</string>\r\n    <string name=\"HeroesTxt\">Personajes</string>\r\n    <string name=\"VillanosTxt\">Villanos</string>\r\n    <string name=\"BuscarVillanoTxt\">Buscar Villano:</string>\r\n    <string name=\"NombreVillanoTxt\">Introduzca el nombre del Villano</string>\r\n    <string name=\"CómicsTxt\">Cómics</string>\r\n    <string name=\"BuscarComicTxt\">Buscar Comic:</string>\r\n    <string name=\"NombreComicTxt\">Introduzca el numero de Comic</string>\r\n    <string name=\"AntiheroesTxt\">Antihéroes</string>\r\n    <string name=\"BuscarAntiheroeTxt\">Buscar Antiheroe:</string>\r\n    <string name=\"NombreAntiheroeTxt\">Introduzca el nombre del Antiheroe</string>\r\n    <string name=\"BuscarTxt\">Buscar Personaje:</string>\r\n    <string name=\"NombreTxt\">Introduzca el nombre del Personaje</string>\r\n    <string name=\"BuscarBTN\">Buscar</string>\r\n    <string name=\"DescripcionTxt\">Descripción</string>\r\n    <string name=\"DatosTxt\">Datos Generales</string>\r\n    <string name=\"RegresarBTN\">Regresar</string>\r\n    <string name=\"NewSearchBTN\">Nueva Búsqueda</string>\r\n    <string name=\"CuadrosTexto\"> </string>\r\n    <string name=\"NombrePersonaje\">Nombre Pj</string>\r\n</resources>\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision 1a2ecc203f6766d2c29b03b362eac4c05d8aad24)
++++ app/src/main/res/values/strings.xml	(date 1605560429042)
+@@ -20,6 +20,6 @@
+     <string name="RegresarBTN">Regresar</string>
+     <string name="NewSearchBTN">Nueva Búsqueda</string>
+     <string name="CuadrosTexto"> </string>
+-    <string name="NombrePersonaje">Nombre Pj</string>
++    <string name="SampleTxt">Nombre Pj</string>
+ </resources>
+ 
+Index: app/src/main/java/com/example/marvelslibrary/CharacterListRecycleViewAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.marvelslibrary\r\n\r\nimport android.view.LayoutInflater\r\nimport android.view.ViewGroup\r\nimport androidx.recyclerview.widget.RecyclerView\r\n\r\nclass CharacterListRecycleViewAdapter : RecyclerView.Adapter<CharacterListViewHolder>() {\r\n\r\n    val listaPrueba:List<String> = listOf<String>(\"hola\",\"q\",\"hace\")\r\n\r\n    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterListViewHolder {\r\n        val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_view_holder,parent,false)\r\n        return CharacterListViewHolder(view)\r\n    }\r\n\r\n    override fun onBindViewHolder(holder: CharacterListViewHolder, position: Int) {\r\n        holder.characterName.text = listaPrueba[position]\r\n    }\r\n\r\n    override fun getItemCount(): Int {\r\n        return listaPrueba.size\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/marvelslibrary/CharacterListRecycleViewAdapter.kt	(revision 1a2ecc203f6766d2c29b03b362eac4c05d8aad24)
++++ app/src/main/java/com/example/marvelslibrary/CharacterListRecycleViewAdapter.kt	(date 1605723787972)
+@@ -3,10 +3,11 @@
+ import android.view.LayoutInflater
+ import android.view.ViewGroup
+ import androidx.recyclerview.widget.RecyclerView
++import com.example.marvelslibrary.service.CharacterDataWrapper
+ 
+ class CharacterListRecycleViewAdapter : RecyclerView.Adapter<CharacterListViewHolder>() {
+ 
+-    val listaPrueba:List<String> = listOf<String>("hola","q","hace")
++    var listaCharacters:List<CharacterDataWrapper.Character> = listOf<CharacterDataWrapper.Character>()
+ 
+     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterListViewHolder {
+         val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_view_holder,parent,false)
+@@ -14,11 +15,11 @@
+     }
+ 
+     override fun onBindViewHolder(holder: CharacterListViewHolder, position: Int) {
+-        holder.characterName.text = listaPrueba[position]
++        holder.characterName.text = listaCharacters[position].name
+     }
+ 
+     override fun getItemCount(): Int {
+-        return listaPrueba.size
++        return listaCharacters.size
+     }
+ 
+ }
+Index: app/src/main/res/layout/screenheroes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\">\r\n\r\n        <androidx.constraintlayout.widget.Guideline\r\n            android:id=\"@+id/guideline3\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            app:layout_constraintGuide_begin=\"90dp\" />\r\n\r\n        <androidx.constraintlayout.widget.Guideline\r\n            android:id=\"@+id/guideline4\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintGuide_end=\"90dp\"\r\n            app:layout_constraintStart_toStartOf=\"parent\" />\r\n\r\n        <androidx.recyclerview.widget.RecyclerView\r\n            android:id=\"@+id/rcvPjs\"\r\n            android:layout_width=\"414dp\"\r\n            android:layout_height=\"615dp\"\r\n            app:layout_constraintBottom_toTopOf=\"@+id/textView8\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/guideline5\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView7\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"0dp\"\r\n            android:background=\"@color/colorRed\"\r\n            android:text=\"@string/HeroesTxt\"\r\n            android:textAlignment=\"center\"\r\n            android:textColor=\"@android:color/background_light\"\r\n            android:textSize=\"66sp\"\r\n            app:layout_constraintBottom_toTopOf=\"@+id/guideline3\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView8\"\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"0dp\"\r\n            android:background=\"@color/colorRed\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.0\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/guideline4\"\r\n            app:layout_constraintVertical_bias=\"0.0\" />\r\n\r\n        <androidx.constraintlayout.widget.Guideline\r\n            android:id=\"@+id/guideline5\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintGuide_begin=\"140dp\"\r\n            app:layout_constraintStart_toStartOf=\"parent\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView9\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"12dp\"\r\n            android:layout_marginTop=\"16dp\"\r\n            android:layout_marginBottom=\"16dp\"\r\n            android:text=\"@string/BuscarTxt\"\r\n            android:textAlignment=\"center\"\r\n            android:textStyle=\"bold\"\r\n            app:layout_constraintBottom_toTopOf=\"@+id/guideline5\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/textView7\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/BuscarTxt\"\r\n            android:layout_width=\"220dp\"\r\n            android:layout_height=\"20dp\"\r\n            android:layout_marginStart=\"2dp\"\r\n            android:layout_marginTop=\"16dp\"\r\n            android:layout_marginBottom=\"16dp\"\r\n            android:background=\"@android:drawable/editbox_dropdown_light_frame\"\r\n            android:editable=\"true\"\r\n            android:text=\"@string/NombreTxt\"\r\n            android:textAlignment=\"textStart\"\r\n            app:layout_constraintBottom_toTopOf=\"@+id/guideline5\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/textView9\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/textView7\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/BuscarBtn\"\r\n            android:layout_width=\"80dp\"\r\n            android:layout_height=\"30dp\"\r\n            android:layout_marginStart=\"4dp\"\r\n            android:layout_marginTop=\"16dp\"\r\n            android:layout_marginEnd=\"4dp\"\r\n            android:layout_marginBottom=\"16dp\"\r\n            android:background=\"@android:drawable/btn_default\"\r\n            android:onClick=\"Buscar\"\r\n            android:paddingBottom=\"4dp\"\r\n            android:text=\"@string/BuscarBTN\"\r\n            android:textAlignment=\"inherit\"\r\n            android:textSize=\"12sp\"\r\n            app:layout_constraintBottom_toTopOf=\"@+id/guideline5\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/BuscarTxt\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/guideline3\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/ReturnBtn\"\r\n            android:layout_width=\"128dp\"\r\n            android:layout_height=\"45dp\"\r\n            android:layout_marginStart=\"40dp\"\r\n            android:layout_marginTop=\"8dp\"\r\n            android:layout_marginBottom=\"8dp\"\r\n            android:onClick=\"Regresar\"\r\n            android:text=\"@string/RegresarBTN\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/guideline4\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/NewSearchBtn\"\r\n            android:layout_width=\"128dp\"\r\n            android:layout_height=\"45dp\"\r\n            android:layout_marginTop=\"8dp\"\r\n            android:layout_marginEnd=\"40dp\"\r\n            android:layout_marginBottom=\"8dp\"\r\n            android:onClick=\"NuevaBusqueda\"\r\n            android:text=\"@string/NewSearchBTN\"\r\n            android:textAlignment=\"center\"\r\n            android:textSize=\"12sp\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"@+id/guideline4\" />\r\n\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n\r\n</LinearLayout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/screenheroes.xml	(revision 1a2ecc203f6766d2c29b03b362eac4c05d8aad24)
++++ app/src/main/res/layout/screenheroes.xml	(date 1605561427824)
+@@ -27,9 +27,9 @@
+ 
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/rcvPjs"
+-            android:layout_width="414dp"
+-            android:layout_height="615dp"
+-            app:layout_constraintBottom_toTopOf="@+id/textView8"
++            android:layout_width="397dp"
++            android:layout_height="613dp"
++            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="@+id/guideline5" />
+@@ -66,57 +66,9 @@
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             app:layout_constraintEnd_toEndOf="parent"
+-            app:layout_constraintGuide_begin="140dp"
++            app:layout_constraintGuide_begin="90dp"
+             app:layout_constraintStart_toStartOf="parent" />
+ 
+-        <TextView
+-            android:id="@+id/textView9"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:layout_marginStart="12dp"
+-            android:layout_marginTop="16dp"
+-            android:layout_marginBottom="16dp"
+-            android:text="@string/BuscarTxt"
+-            android:textAlignment="center"
+-            android:textStyle="bold"
+-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+-            app:layout_constraintStart_toStartOf="parent"
+-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+-
+-        <TextView
+-            android:id="@+id/BuscarTxt"
+-            android:layout_width="220dp"
+-            android:layout_height="20dp"
+-            android:layout_marginStart="2dp"
+-            android:layout_marginTop="16dp"
+-            android:layout_marginBottom="16dp"
+-            android:background="@android:drawable/editbox_dropdown_light_frame"
+-            android:editable="true"
+-            android:text="@string/NombreTxt"
+-            android:textAlignment="textStart"
+-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+-            app:layout_constraintStart_toEndOf="@+id/textView9"
+-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+-
+-        <Button
+-            android:id="@+id/BuscarBtn"
+-            android:layout_width="80dp"
+-            android:layout_height="30dp"
+-            android:layout_marginStart="4dp"
+-            android:layout_marginTop="16dp"
+-            android:layout_marginEnd="4dp"
+-            android:layout_marginBottom="16dp"
+-            android:background="@android:drawable/btn_default"
+-            android:onClick="Buscar"
+-            android:paddingBottom="4dp"
+-            android:text="@string/BuscarBTN"
+-            android:textAlignment="inherit"
+-            android:textSize="12sp"
+-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+-            app:layout_constraintEnd_toEndOf="parent"
+-            app:layout_constraintStart_toEndOf="@+id/BuscarTxt"
+-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+-
+         <Button
+             android:id="@+id/ReturnBtn"
+             android:layout_width="128dp"

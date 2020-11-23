@@ -3,24 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/txtViewHolder"
-        android:layout_width="132dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="225dp"
-        android:layout_marginBottom="783dp"
-        android:background="#000000"
-        android:contentDescription="@string/NombrePersonaje"
-        android:text="@string/NombrePersonaje"
+        android:layout_width="388dp"
+        android:layout_height="74dp"
+        android:background="#FFFFFF"
+        android:gravity="clip_horizontal|center_vertical"
+        android:text="@string/SampleTxt"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/NombrePersonaje" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

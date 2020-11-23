@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity()
         startActivity(intent)
     }
 
+
     fun Buscar(view: View)
     {
 
@@ -31,4 +32,6 @@ class MainActivity : AppCompatActivity()
     {
 
     }
+
+
 }

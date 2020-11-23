@@ -3,10 +3,11 @@ package com.example.marvelslibrary
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.marvelslibrary.service.CharacterDataWrapper
 
 class CharacterListRecycleViewAdapter : RecyclerView.Adapter<CharacterListViewHolder>() {
 
-    val listaPrueba:List<String> = listOf<String>("hola","q","hace")
+    var listaCharacters:List<CharacterDataWrapper.Character> = listOf<CharacterDataWrapper.Character>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_view_holder,parent,false)
@@ -14,11 +15,11 @@ class CharacterListRecycleViewAdapter : RecyclerView.Adapter<CharacterListViewHo
     }
 
     override fun onBindViewHolder(holder: CharacterListViewHolder, position: Int) {
-        holder.characterName.text = listaPrueba[position]
+        holder.characterName.text = listaCharacters[position].name
     }
 
     override fun getItemCount(): Int {
-        return listaPrueba.size
+        return listaCharacters.size
     }
 
 }

@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="410dp"
-        android:layout_height="728dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@color/colorRed"
         android:paddingTop="270dp"
         android:textAlignment="center"
@@ -25,12 +25,14 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="320dp"
+        android:fontFamily="@font/custom_font"
         android:text="@string/MarvelTxt"
         android:textAlignment="center"
         android:textColor="@color/design_default_color_background"
-        android:textSize="96sp"
+        android:textSize="120sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,13 +42,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="260dp"
+        android:fontFamily="@font/custom_font"
         android:text="@string/LibrayTxt"
         android:textAlignment="center"
         android:textColor="@color/design_default_color_on_secondary"
         android:textSize="66sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.69"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/angry_btn"
+
+        android:layout_width="187dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="56dp"
+
+        android:background="@xml/button_format"
+        android:shadowColor="#FF030B"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/BotonInicio"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

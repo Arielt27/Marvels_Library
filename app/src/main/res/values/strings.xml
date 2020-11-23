@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Marvel\'s Library</string>
     <string name="MarvelTxt">MARVEL</string>
-    <string name="LibrayTxt">Library</string>
+    <string name="LibrayTxt">LIBRARY</string>
 
-    <string name="CharacterTxt">Personajes</string>
-    <string name="CómicsTxt">Cómics</string>
+    <string name="CharacterTxt">PERSONAJES</string>
+    <string name="CómicsTxt">COMICS</string>
 
     <string name="BuscarTxt">Buscar Personaje:</string>
     <string name="NombreTxt">Introduzca el nombre del Personaje</string>
@@ -16,6 +16,12 @@
     <string name="NewSearchBTN">Nueva Búsqueda</string>
 
     <string name="CuadrosTexto"> </string>
-    <string name="NombrePersonaje">Nombre Pj</string>
+    <string name="SampleTxt">Nombre Pj</string>
+
+    <string name="BotonInicio">EMPEZAR</string>
+
+
+
+
 </resources>
 
