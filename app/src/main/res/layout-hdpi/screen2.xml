@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_begin="50dp"
+            app:layout_constraintGuide_percent="0.10"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_end="50dp"
+            app:layout_constraintGuide_percent="0.90"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:text="@string/MarvelTxt"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textSize="40sp"
+            android:textSize="140sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -56,16 +56,16 @@
 
         <Button
             android:id="@+id/ComicsBtn"
-            android:layout_width="130dp"
+            android:layout_width="530dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="250dp"
             android:background="@color/design_default_color_secondary_variant"
             android:onClick="Comics"
             android:text="@string/CómicsTxt"
             android:textAlignment="center"
             android:textColor="@color/design_default_color_on_secondary"
-            android:textSize="20sp"
+            android:textSize="80sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -76,15 +76,15 @@
         <Button
             android:id="@+id/CharacterBtn"
             style="@style/Widget.AppCompat.Button"
-            android:layout_width="130dp"
+            android:layout_width="530dp"
             android:layout_height="0dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="250dp"
             android:background="@color/design_default_color_secondary_variant"
             android:onClick="Character"
             android:text="@string/CharacterTxt"
             android:textAlignment="center"
             android:textColor="@color/design_default_color_on_secondary"
-            android:textSize="20sp"
+            android:textSize="80sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

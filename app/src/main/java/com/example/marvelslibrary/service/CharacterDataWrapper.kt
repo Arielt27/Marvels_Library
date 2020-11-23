@@ -1,7 +1,5 @@
 package com.example.marvelslibrary.service
 
-import android.media.Image
-
 data class CharacterDataWrapper(
     val code:Int,
     val status:String,

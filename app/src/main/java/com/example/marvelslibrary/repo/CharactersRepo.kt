@@ -5,7 +5,8 @@ import com.example.marvelslibrary.service.CharacterDataWrapper
 import retrofit2.Call
 import retrofit2.Response
 
-class CharactersRepo(private val characterService:CharacterService){
+class CharactersRepo(private val characterService:CharacterService)
+{
 
     var apikey = "bd34039f11dd5094fed60836a02359b4"
     var hash = "11f720d99b00745927692524dc0079d3"
@@ -25,10 +26,10 @@ class CharactersRepo(private val characterService:CharacterService){
                 callBack(body?.data)
             }
 
-            override fun onFailure(call: Call<CharacterDataWrapper>, t: Throwable) {
+            override fun onFailure(call: Call<CharacterDataWrapper>, t: Throwable)
+            {
                 callBack(null)
             }
-
         })
     }
 }
