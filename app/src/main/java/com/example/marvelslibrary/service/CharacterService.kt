@@ -9,7 +9,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 
-interface CharacterService {
+interface CharacterService
+{
     @GET("v1/public/characters?")
     fun listCharacters(
         @Query("apikey") apikey: String,

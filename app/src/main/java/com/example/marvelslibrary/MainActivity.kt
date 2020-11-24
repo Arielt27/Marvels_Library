@@ -12,13 +12,12 @@ class MainActivity : AppCompatActivity()
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        contador()
     }
 
-    fun contador()
+    fun continuar(view: View)
     {
         val intent = Intent(this, Activity2::class.java)
+
         startActivity(intent)
     }
 

@@ -88,7 +88,7 @@
             android:ems="30"
             android:hint="@string/NombreComicTxt"
             android:importantForAutofill="no"
-            android:inputType="number|text"
+            android:inputType="text"
             android:singleLine="true"
             android:text="@string/CuadrosTexto"
             android:textAlignment="center"

@@ -62,6 +62,7 @@
         android:layout_marginBottom="56dp"
 
         android:background="@xml/button_format"
+        android:onClick="continuar"
         android:shadowColor="#FF030B"
         android:shadowDx="0"
         android:shadowDy="0"
