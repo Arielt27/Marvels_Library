@@ -28,6 +28,13 @@ class Activity2 : AppCompatActivity()
         startActivity(intent)
     }
 
+    fun CharacterScreen(view:View)
+    {
+        val intent = Intent(this, CharacterScreenActivity::class.java)
+
+        startActivity(intent)
+    }
+
 
 
 

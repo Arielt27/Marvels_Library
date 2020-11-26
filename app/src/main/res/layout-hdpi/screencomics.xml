@@ -33,8 +33,8 @@
             app:layout_constraintGuide_end="187dp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="919dp"
-            android:layout_height="1361dp"
+            android:layout_width="927dp"
+            android:layout_height="1223dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"

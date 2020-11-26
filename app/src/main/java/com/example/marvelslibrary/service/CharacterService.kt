@@ -11,7 +11,7 @@ import retrofit2.http.Query
 
 interface CharacterService
 {
-    @GET("v1/public/characters?")
+    @GET("characters?")
     fun listCharacters(
         @Query("apikey") apikey: String,
         @Query("hash") hash: String,
@@ -21,9 +21,10 @@ interface CharacterService
     companion object
     {
         val instance : CharacterService by lazy{
-            val retrofit = Retrofit.Builder().baseUrl("http://gateway.marvel.com/")
-                .addConverterFactory(GsonConverterFactory.create()).build()
-            retrofit.create(CharacterService::class.java)
+            val retrofit = Retrofit.Builder().baseUrl("https://gateway.marvel.com/v1/public/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            retrofit.create<CharacterService>(CharacterService::class.java)
         }
 
     }

@@ -10,7 +10,8 @@ class RestEngine
         fun getRestEngine(): retrofit2.Retrofit
         {
             val retrofit = Retrofit.Builder()
-                .baseUrl("http(s)://gateway.marvel.com/98eeebf435a8d433d8ab06a7dd3c9bfa")
+                .baseUrl(
+                        "http://gateway.marvel.com/v1/public/characters?apikey=bd34039f11dd5094fed60836a02359b4&hash=11f720d99b00745927692524dc0079d3&ts=1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 

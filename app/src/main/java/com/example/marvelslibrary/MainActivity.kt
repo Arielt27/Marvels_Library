@@ -5,8 +5,6 @@ import android.view.View
 import android.content.Intent
 import android.os.Vibrator
 import android.util.Log
-import android.view.Window
-import android.view.WindowManager
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.marvelslibrary.repo.CharactersRepo
@@ -28,7 +26,7 @@ class MainActivity : AppCompatActivity()
         setContentView(R.layout.activity_main)
 
         val characterService : CharacterService = CharacterService.instance
-        val characterRepo = CharactersRepo(characterService);
+        val characterRepo = CharactersRepo(characterService)
 
         val TAG = javaClass.simpleName
 
@@ -37,12 +35,18 @@ class MainActivity : AppCompatActivity()
             {
                 Log.i(TAG,"resultado = $it")
                 characterList = it
+                for (i in 0..characterList.size-1)
+                {
+                    println(characterList[i].name)
+                }
             }else
             {
                 Log.i(TAG,"resultado = $it")
 
             }
         }
+
+
 
 
 
@@ -66,13 +70,17 @@ class MainActivity : AppCompatActivity()
 
     fun BuscarPj(view: View)
     {
-        var nombrePj:EditText = findViewById(R.id.editTextTextPersonName)
-        var personaje = nombrePj.text
+        var textView:EditText = findViewById(R.id.editTextTextPersonName)
+        var personaje = textView.text
+
+        println(personaje)
 
         for(i in 0..characterList.size-1)
         {
             if (personaje.equals(characterList[i].name))
             {
+                val intent = Intent(this, CharacterScreenActivity::class.java)
+                startActivity(intent)
             }
         }
 
@@ -80,6 +88,20 @@ class MainActivity : AppCompatActivity()
     }
     fun BuscarComic(view: View)
     {
+        var textView:EditText = findViewById(R.id.editTextTextPersonName)
+        var comicName = textView.text
+
+        println(comicName)
+
+        for(i in 0..characterList.size-1)
+        {
+            if (comicName.equals(comicList[i].title))
+            {
+                val intent = Intent(this, ComicScreenActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
 
     }
 

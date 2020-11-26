@@ -22,12 +22,14 @@ class CharactersRepo(private val characterService:CharacterService)
                 response: Response<CharacterDataWrapper>
             )
             {
+                println("success")
                 val body: CharacterDataWrapper? = response?.body()
                 callBack(body?.data?.results)
             }
 
             override fun onFailure(call: Call<CharacterDataWrapper>, t: Throwable)
             {
+                println("mal")
                 callBack(null)
             }
         })
