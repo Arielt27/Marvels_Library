@@ -17,12 +17,11 @@
     <string name="NewSearchBTN">Nueva Búsqueda</string>
 
     <string name="CuadrosTexto"> </string>
-    <string name="SampleTxt">Nombre Pj</string>
-
     <string name="BotonInicio">EMPEZAR</string>
 
+    <string name="PjName">Nombre Personaje</string>
+    <string name="ComicName">Nombre Cómic</string>
 
-
-
+    <string name="SampleTxt">Text</string>
 </resources>
 
