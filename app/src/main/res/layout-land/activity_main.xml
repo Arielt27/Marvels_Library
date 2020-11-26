@@ -25,13 +25,14 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="88dp"
         android:fontFamily="@font/custom_font"
         android:text="@string/MarvelTxt"
         android:textAlignment="center"
         android:textColor="@color/design_default_color_background"
         android:textSize="120sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,19 +49,18 @@
         android:textSize="66sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.587"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.048" />
 
     <Button
         android:id="@+id/angry_btn"
 
         android:layout_width="187dp"
         android:layout_height="52dp"
-        android:layout_marginTop="101dp"
+        android:layout_marginBottom="52dp"
 
-        android:layout_marginBottom="56dp"
         android:background="@xml/button_format"
         android:onClick="continuar"
         android:shadowColor="#FF030B"
@@ -72,7 +72,6 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

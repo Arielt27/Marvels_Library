@@ -25,14 +25,13 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="544dp"
         android:fontFamily="@font/custom_font"
         android:text="@string/MarvelTxt"
         android:textAlignment="center"
         android:textColor="@color/design_default_color_background"
-        android:textSize="120sp"
+        android:textSize="300sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,20 +45,20 @@
         android:text="@string/LibrayTxt"
         android:textAlignment="center"
         android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="66sp"
+        android:textSize="200sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.648"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.003" />
 
     <Button
         android:id="@+id/angry_btn"
 
-        android:layout_width="187dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="56dp"
+        android:layout_width="307dp"
+        android:layout_height="71dp"
+        android:layout_marginBottom="176dp"
 
         android:background="@xml/button_format"
         android:onClick="continuar"
@@ -69,7 +68,7 @@
         android:shadowRadius="5"
         android:text="@string/BotonInicio"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

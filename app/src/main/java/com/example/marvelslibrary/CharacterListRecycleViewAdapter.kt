@@ -7,7 +7,7 @@ import com.example.marvelslibrary.service.CharacterDataWrapper
 
 class CharacterListRecycleViewAdapter : RecyclerView.Adapter<CharacterListViewHolder>() {
 
-    var listaCharacters:List<CharacterDataWrapper.Character> = listOf<CharacterDataWrapper.Character>()
+    var listaCharacters:List<CharacterDataWrapper.CharacterDataContainer.Character> = listOf<CharacterDataWrapper.CharacterDataContainer.Character>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_view_holder,parent,false)

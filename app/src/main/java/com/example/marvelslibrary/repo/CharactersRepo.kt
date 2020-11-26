@@ -12,7 +12,7 @@ class CharactersRepo(private val characterService:CharacterService)
     var hash = "11f720d99b00745927692524dc0079d3"
     var ts = "1"
 
-    fun listCharacters(callBack: (CharacterDataWrapper.CharacterDataContainer?)-> Unit)
+    fun listCharacters(callBack: (List<CharacterDataWrapper.CharacterDataContainer.Character>?)-> Unit)
     {
         val characterCall = characterService.listCharacters(apikey,hash,ts)
         characterCall.enqueue(object: retrofit2.Callback<CharacterDataWrapper>
@@ -23,7 +23,7 @@ class CharactersRepo(private val characterService:CharacterService)
             )
             {
                 val body: CharacterDataWrapper? = response?.body()
-                callBack(body?.data)
+                callBack(body?.data?.results)
             }
 
             override fun onFailure(call: Call<CharacterDataWrapper>, t: Throwable)
