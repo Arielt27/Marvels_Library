@@ -1,5 +1,6 @@
 package com.example.marvelslibrary
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -26,8 +27,10 @@ class ActivityCharacter : AppCompatActivity()
         val resultado: Call<Characters> = llamadaInterfaz.getCharacters()
 
         doAsync{
-            resultado.enqueue(object : retrofit2.Callback<Characters> {
-                override fun onResponse(call: Call<Characters>, response: Response<Characters>) {
+            resultado.enqueue(object : retrofit2.Callback<Characters>
+            {
+                override fun onResponse(call: Call<Characters>, response: Response<Characters>)
+                {
                     if (response.isSuccessful) {
                         var personajes: Characters? = response.body()
                         println("Funciona")
@@ -37,15 +40,26 @@ class ActivityCharacter : AppCompatActivity()
                     }
                 }
 
-                override fun onFailure(call: Call<Characters>, t: Throwable) {
+                override fun onFailure(call: Call<Characters>, t: Throwable)
+                {
                     Log.e("ERROR", "Error al conectar")
                 }
 
             })
         }
+
+        val intent = Intent(this, ActivityPersonaje::class.java)
+
+        startActivity(intent)
     }
 
 
+    fun NuevaBusqueda(view: View)
+    {
+        val intent = Intent(this, ActivityCharacter::class.java)
+
+        startActivity(intent)
+    }
 }
 
 

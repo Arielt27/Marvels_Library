@@ -43,10 +43,8 @@ class MainActivity : AppCompatActivity()
 
             }
         }
-
-
-
     }
+
 
     fun continuar(view: View)
     {
@@ -75,18 +73,5 @@ class MainActivity : AppCompatActivity()
             {
             }
         }
-
-
     }
-    fun BuscarComic(view: View)
-    {
-
-    }
-
-    fun NuevaBusqueda(view: View)
-    {
-
-    }
-
-
 }

@@ -27,9 +27,4 @@ class Activity2 : AppCompatActivity()
 
         startActivity(intent)
     }
-
-
-
-
-
 }
