@@ -18,6 +18,13 @@ interface CharacterService
         @Query("ts") ts: String
     ): Call<CharacterDataWrapper>
 
+    @GET("comics?")
+    fun listComics(
+        @Query("apikey")apikey: String,
+        @Query("hash") hash: String,
+        @Query("ts") ts: String
+    ) : Call<ComicDataWrapper>
+
     companion object
     {
         val instance : CharacterService by lazy{

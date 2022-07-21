@@ -33,6 +33,7 @@
             app:layout_constraintGuide_end="50dp" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvComics"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
